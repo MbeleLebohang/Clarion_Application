@@ -10,6 +10,7 @@ StringTheory:TemplateVersion equate('2.66')
    INCLUDE('KEYCODES.CLW'),ONCE
    INCLUDE('ABFUZZY.INC'),ONCE
   include('StringTheory.Inc'),ONCE
+include('CWSYNCHC.INC'), ONCE
 include('XMLGenerator.Inc'),ONCE
 
    MAP
@@ -24,6 +25,8 @@ Main                   PROCEDURE   !Wizard Application for C:\Users\user\Documen
    END
 
 Glo:str              StringTheory,THREAD
+Glo:cs               CriticalSection
+Glo:RecentBrowser    STRING(50)
 SilentRunning        BYTE(0)                               ! Set true when application is running in 'silent mode'
 
 !region File Declaration
