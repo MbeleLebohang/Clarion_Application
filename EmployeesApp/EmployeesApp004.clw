@@ -628,3 +628,10 @@ Resizer.Init PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize
   PARENT.Init(AppStrategy,SetWindowMinSize,SetWindowMaxSize)
   SELF.SetParentDefaults()                                 ! Calculate default control parent-child relationships based upon their positions on the window
 
+!!! <summary>
+!!! Generated from procedure template - Source
+!!! Procedure for manipulating files
+!!! </summary>
+Export_File          PROCEDURE  (FILE pTableFile)          ! Declare Procedure
+
+  CODE

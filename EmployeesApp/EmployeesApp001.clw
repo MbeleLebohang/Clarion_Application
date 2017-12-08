@@ -29,7 +29,7 @@ AppFrame             APPLICATION('Application'),AT(,,505,318),FONT('Segoe UI',10
                        MENUBAR,USE(?Menubar)
                          MENU('&File'),USE(?FileMenu)
                            ITEM('&Print Setup ...'),USE(?PrintSetup),MSG('Setup printer'),STD(STD:PrintSetup)
-                           ITEM,SEPARATOR
+                           ITEM,USE(?SEPARATOR1),SEPARATOR
                            ITEM('E&xit'),USE(?Exit),MSG('Exit this application'),STD(STD:Close)
                          END
                          MENU('&Edit'),USE(?EditMenu)
