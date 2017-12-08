@@ -1,4 +1,5 @@
 
+
    MEMBER('EmployeesApp.clw')                              ! This is a MEMBER module
 
 
@@ -178,9 +179,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = 1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   SELF.Open(AppFrame)                                      ! Open window
   Do DefineListboxStyle
   INIMgr.Fetch('Main',AppFrame)                            ! Restore window settings from non-volatile store
@@ -244,44 +245,52 @@ BRW1::View:Browse    VIEW(Employees)
                        PROJECT(Emp:Full_Names)
                        PROJECT(Emp:Job_Title)
                        PROJECT(Emp:Address)
-                       PROJECT(Emp:PhoneGuid)
                        PROJECT(Emp:Employment_Date)
-                       PROJECT(Emp:QualificationGuid)
-                       PROJECT(Emp:SalaryGuid)
                        PROJECT(Emp:Guid)
+                       PROJECT(Emp:PhoneGuid)
+                       PROJECT(Emp:SalaryGuid)
+                       JOIN(Pho:EmployeeGuidKey,Emp:PhoneGuid)
+                         PROJECT(Pho:Phone_Number)
+                       END
+                       JOIN(Sal:EmployeeGuidKey,Emp:SalaryGuid)
+                         PROJECT(Sal:Salary)
+                         PROJECT(Sal:Salary_Type)
+                         PROJECT(Sal:EmployeeGuid)
+                       END
                      END
 Queue:Browse:1       QUEUE                            !Queue declaration for browse/combo box using ?Browse:1
 Emp:Full_Names         LIKE(Emp:Full_Names)           !List box control field - type derived from field
 Emp:Job_Title          LIKE(Emp:Job_Title)            !List box control field - type derived from field
 Emp:Address            LIKE(Emp:Address)              !List box control field - type derived from field
-Emp:PhoneGuid          LIKE(Emp:PhoneGuid)            !List box control field - type derived from field
+Pho:Phone_Number       LIKE(Pho:Phone_Number)         !List box control field - type derived from field
+Sal:Salary             LIKE(Sal:Salary)               !List box control field - type derived from field
+Sal:Salary_Type        LIKE(Sal:Salary_Type)          !List box control field - type derived from field
 Emp:Employment_Date    LIKE(Emp:Employment_Date)      !List box control field - type derived from field
-Emp:QualificationGuid  LIKE(Emp:QualificationGuid)    !List box control field - type derived from field
-Emp:SalaryGuid         LIKE(Emp:SalaryGuid)           !List box control field - type derived from field
 Emp:Guid               LIKE(Emp:Guid)                 !Primary key field - type derived from field
+Sal:EmployeeGuid       LIKE(Sal:EmployeeGuid)         !Related join file key field - type derived from field
 Mark                   BYTE                           !Entry's marked status
 ViewPosition           STRING(1024)                   !Entry's view position
                      END
-QuickWindow          WINDOW('Browse the Employees file'),AT(,,358,198),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
+QuickWindow          WINDOW('Employees Personal Information'),AT(,,358,209),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
   CHARSET:DEFAULT),RESIZE,TILED,CENTER,GRAY,IMM,MDI,HLP('BrowseEmployees'),SYSTEM,WALLPAPER('C:\Users\u' & |
   'ser\Downloads\bg.png')
-                       LIST,AT(2,2,354,153),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Name~@s100@80L(2)|M~Job T' & |
-  'itle~@s20@80L(2)|M~Address~@s255@74L(2)|M~Phone ID~@s20@77R(2)|M~Date of Employment~' & |
-  'C(0)@n-14@68L(2)|M~Qualification ID~@s16@68L(2)|M~Salary ID~@s16@'),FROM(Queue:Browse:1), |
+                       LIST,AT(2,2,353,167),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Name~@s100@80L(2)|M~Job T' & |
+  'itle~@s20@80L(2)|M~Address~@s255@80L(2)|M~Phone Number~L(0)@s20@82L(2)|M~Salary~D(12' & |
+  ')@n-17.2@86L(2)|M~Salary Type~D(0)@s20@77R(2)|M~Date of Employment~C(0)@n-14@'),FROM(Queue:Browse:1), |
   IMM,MSG('Browsing the Employees file')
-                       BUTTON('&View'),AT(138,158,50,14),USE(?View:2),LEFT,ICON('WAVIEW.ICO'),MSG('View Record'), |
+                       BUTTON('&View'),AT(143,173,50,14),USE(?View:2),LEFT,ICON('WAVIEW.ICO'),MSG('View Record'), |
   TIP('View Record')
-                       BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert:3),LEFT,ICON('WAINSERT.ICO'),MSG('Insert a Record'), |
+                       BUTTON('&Insert'),AT(198,173,50,14),USE(?Insert:3),LEFT,ICON('WAINSERT.ICO'),MSG('Insert a Record'), |
   TIP('Insert a Record')
-                       BUTTON('&Change'),AT(246,158,50,14),USE(?Change:3),LEFT,ICON('WACHANGE.ICO'),DEFAULT,MSG('Change the Record'), |
+                       BUTTON('&Change'),AT(250,173,50,14),USE(?Change:3),LEFT,ICON('WACHANGE.ICO'),DEFAULT,MSG('Change the Record'), |
   TIP('Change the Record')
-                       BUTTON('&Delete'),AT(300,158,50,14),USE(?Delete:3),LEFT,ICON('WADELETE.ICO'),MSG('Delete the Record'), |
+                       BUTTON('&Delete'),AT(306,173,50,14),USE(?Delete:3),LEFT,ICON('WADELETE.ICO'),MSG('Delete the Record'), |
   TIP('Delete the Record')
-                       BUTTON('&Close'),AT(246,180,50,14),USE(?Close),LEFT,ICON('WACLOSE.ICO'),MSG('Close Window'), |
+                       BUTTON('&Close'),AT(250,194,50,14),USE(?Close),LEFT,ICON('WACLOSE.ICO'),MSG('Close Window'), |
   TIP('Close Window')
-                       BUTTON('&Help'),AT(300,180,50,14),USE(?Help),LEFT,ICON('WAHELP.ICO'),MSG('See Help Window'), |
+                       BUTTON('&Help'),AT(306,194,50,14),USE(?Help),LEFT,ICON('WAHELP.ICO'),MSG('See Help Window'), |
   STD(STD:Help),TIP('See Help Window')
-                       BUTTON('Export'),AT(192,180,50),USE(?ExportXMLFile)
+                       BUTTON('Export'),AT(198,194,50),USE(?ExportXMLFile)
                      END
 
 ThisWindow           CLASS(WindowManager)
@@ -327,9 +336,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -345,11 +354,12 @@ ReturnValue          BYTE,AUTO
   BRW1.AddField(Emp:Full_Names,BRW1.Q.Emp:Full_Names)      ! Field Emp:Full_Names is a hot field or requires assignment from browse
   BRW1.AddField(Emp:Job_Title,BRW1.Q.Emp:Job_Title)        ! Field Emp:Job_Title is a hot field or requires assignment from browse
   BRW1.AddField(Emp:Address,BRW1.Q.Emp:Address)            ! Field Emp:Address is a hot field or requires assignment from browse
-  BRW1.AddField(Emp:PhoneGuid,BRW1.Q.Emp:PhoneGuid)        ! Field Emp:PhoneGuid is a hot field or requires assignment from browse
+  BRW1.AddField(Pho:Phone_Number,BRW1.Q.Pho:Phone_Number)  ! Field Pho:Phone_Number is a hot field or requires assignment from browse
+  BRW1.AddField(Sal:Salary,BRW1.Q.Sal:Salary)              ! Field Sal:Salary is a hot field or requires assignment from browse
+  BRW1.AddField(Sal:Salary_Type,BRW1.Q.Sal:Salary_Type)    ! Field Sal:Salary_Type is a hot field or requires assignment from browse
   BRW1.AddField(Emp:Employment_Date,BRW1.Q.Emp:Employment_Date) ! Field Emp:Employment_Date is a hot field or requires assignment from browse
-  BRW1.AddField(Emp:QualificationGuid,BRW1.Q.Emp:QualificationGuid) ! Field Emp:QualificationGuid is a hot field or requires assignment from browse
-  BRW1.AddField(Emp:SalaryGuid,BRW1.Q.Emp:SalaryGuid)      ! Field Emp:SalaryGuid is a hot field or requires assignment from browse
   BRW1.AddField(Emp:Guid,BRW1.Q.Emp:Guid)                  ! Field Emp:Guid is a hot field or requires assignment from browse
+  BRW1.AddField(Sal:EmployeeGuid,BRW1.Q.Sal:EmployeeGuid)  ! Field Sal:EmployeeGuid is a hot field or requires assignment from browse
   Resizer.Init(AppStrategy:Surface,Resize:SetMinSize)      ! Controls like list boxes will resize, whilst controls like buttons will move
   SELF.AddItem(Resizer)                                    ! Add resizer to window manager
   INIMgr.Fetch('BrowseEmployees',QuickWindow)              ! Restore window settings from non-volatile store
@@ -712,9 +722,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1049,9 +1059,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1366,9 +1376,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1686,9 +1696,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE

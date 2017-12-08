@@ -25,6 +25,7 @@ Main                   PROCEDURE   !Wizard Application for C:\Users\user\Documen
    END
 
 Glo:str              StringTheory,THREAD
+Glo:xml              XMLGenerator
 Glo:cs               CriticalSection
 Glo:RecentBrowser    STRING(50)
 SilentRunning        BYTE(0)                               ! Set true when application is running in 'silent mode'
