@@ -63,9 +63,10 @@ ErrorMessage    string(255)
   
   SET(pTableFile, 1)
   !-------------------------------------------------
+  str.Start()                                           ! Reset str object: To avoid appending the string if the button is pressed twice
   str.Append('<' & 'xml' &'><13,10>')
 
-
+  
   LOOP
     NEXT(pTableFile)                 
     IF ERRORCODE() THEN BREAK.
