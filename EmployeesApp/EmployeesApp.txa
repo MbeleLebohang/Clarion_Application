@@ -1,0 +1,4263 @@
+[APPLICATION]
+PROCEDURE Main
+DICTIONARY 'C:\Users\user\Documents\Clarion Projects\Clarion_Application\DictionaryExample\Employees.dct'
+[COMMON]
+FROM ABC
+[PROMPTS]
+%ActiveInvisible  DEFAULT (0)
+%AllowUnFilled    DEFAULT (0)
+%RetainRow        DEFAULT (1)
+%ResetOnGainFocus DEFAULT (0)
+%AutoToolBar      DEFAULT (1)
+%AutoRefresh      DEFAULT (1)
+[PROCEDURE]
+NAME Main
+[COMMON]
+DESCRIPTION 'Wizard Application for C:\Users\user\Documents\Clarion Projects\Clarion_Application\DictionaryExample\Employees.dct'
+FROM ABC Frame
+[DATA]
+[FILES]
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 20
+WHEN  ('?BrowseEmployees') ('Call a Procedure')
+WHEN  ('?BrowsePhones') ('Call a Procedure')
+WHEN  ('?BrowseSalary') ('Call a Procedure')
+WHEN  ('?BrowseBenefits') ('Call a Procedure')
+WHEN  ('?BrowseQualification') ('Call a Procedure')
+WHEN  ('?BrowseSchools') ('Call a Procedure')
+WHEN  ('?BrowseLinkBenefitsEmployee') ('Call a Procedure')
+WHEN  ('?BrowseLinkEmployeeQualification') ('Call a Procedure')
+WHEN  ('?ReportEmployees') ('Call a Procedure')
+WHEN  ('?ReportPhones') ('Call a Procedure')
+WHEN  ('?ReportSalary') ('Call a Procedure')
+WHEN  ('?ReportBenefits') ('Call a Procedure')
+WHEN  ('?ReportQualification') ('Call a Procedure')
+WHEN  ('?ReportSchools') ('Call a Procedure')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') ('Call a Procedure')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') ('Call a Procedure')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') ('Call a Procedure')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') ('Call a Procedure')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') ('Call a Procedure')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') ('Call a Procedure')
+
+%ButtonRunName DEPEND %Control STRING TIMES 20
+WHEN  ('?BrowseEmployees') ('')
+WHEN  ('?BrowsePhones') ('')
+WHEN  ('?BrowseSalary') ('')
+WHEN  ('?BrowseBenefits') ('')
+WHEN  ('?BrowseQualification') ('')
+WHEN  ('?BrowseSchools') ('')
+WHEN  ('?BrowseLinkBenefitsEmployee') ('')
+WHEN  ('?BrowseLinkEmployeeQualification') ('')
+WHEN  ('?ReportEmployees') ('')
+WHEN  ('?ReportPhones') ('')
+WHEN  ('?ReportSalary') ('')
+WHEN  ('?ReportBenefits') ('')
+WHEN  ('?ReportQualification') ('')
+WHEN  ('?ReportSchools') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') ('')
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 20
+WHEN  ('?BrowseEmployees') ('')
+WHEN  ('?BrowsePhones') ('')
+WHEN  ('?BrowseSalary') ('')
+WHEN  ('?BrowseBenefits') ('')
+WHEN  ('?BrowseQualification') ('')
+WHEN  ('?BrowseSchools') ('')
+WHEN  ('?BrowseLinkBenefitsEmployee') ('')
+WHEN  ('?BrowseLinkEmployeeQualification') ('')
+WHEN  ('?ReportEmployees') ('')
+WHEN  ('?ReportPhones') ('')
+WHEN  ('?ReportSalary') ('')
+WHEN  ('?ReportBenefits') ('')
+WHEN  ('?ReportQualification') ('')
+WHEN  ('?ReportSchools') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 20
+WHEN  ('?BrowseEmployees') (BrowseEmployees)
+WHEN  ('?BrowsePhones') (BrowsePhones)
+WHEN  ('?BrowseSalary') (BrowseSalary)
+WHEN  ('?BrowseBenefits') (BrowseBenefits)
+WHEN  ('?BrowseQualification') (BrowseQualification)
+WHEN  ('?BrowseSchools') (BrowseSchools)
+WHEN  ('?BrowseLinkBenefitsEmployee') (BrowseLinkBenefitsEmployee)
+WHEN  ('?BrowseLinkEmployeeQualification') (BrowseLinkEmployeeQualification)
+WHEN  ('?ReportEmployees') (ReportEmployees)
+WHEN  ('?ReportPhones') (ReportPhones)
+WHEN  ('?ReportSalary') (ReportSalary)
+WHEN  ('?ReportBenefits') (ReportBenefits)
+WHEN  ('?ReportQualification') (ReportQualification)
+WHEN  ('?ReportSchools') (ReportSchools)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') (ReportLinkBenefitsEmployeeByLin:GuidKey)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') (ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') (ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') (ReportLinkEmployeeQualificationByLin2:GuidKey)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') (ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') (ReportLinkEmployeeQualificationByLin2:QualificationGuidKey)
+
+%ButtonThread DEPEND %Control LONG TIMES 20
+WHEN  ('?BrowseEmployees') (1)
+WHEN  ('?BrowsePhones') (1)
+WHEN  ('?BrowseSalary') (1)
+WHEN  ('?BrowseBenefits') (1)
+WHEN  ('?BrowseQualification') (1)
+WHEN  ('?BrowseSchools') (1)
+WHEN  ('?BrowseLinkBenefitsEmployee') (1)
+WHEN  ('?BrowseLinkEmployeeQualification') (1)
+WHEN  ('?ReportEmployees') (1)
+WHEN  ('?ReportPhones') (1)
+WHEN  ('?ReportSalary') (1)
+WHEN  ('?ReportBenefits') (1)
+WHEN  ('?ReportQualification') (1)
+WHEN  ('?ReportSchools') (1)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') (1)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') (1)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') (1)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') (1)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') (1)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') (1)
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 20
+WHEN  ('?BrowseEmployees') (50000)
+WHEN  ('?BrowsePhones') (50000)
+WHEN  ('?BrowseSalary') (50000)
+WHEN  ('?BrowseBenefits') (50000)
+WHEN  ('?BrowseQualification') (50000)
+WHEN  ('?BrowseSchools') (50000)
+WHEN  ('?BrowseLinkBenefitsEmployee') (50000)
+WHEN  ('?BrowseLinkEmployeeQualification') (50000)
+WHEN  ('?ReportEmployees') (50000)
+WHEN  ('?ReportPhones') (50000)
+WHEN  ('?ReportSalary') (50000)
+WHEN  ('?ReportBenefits') (50000)
+WHEN  ('?ReportQualification') (50000)
+WHEN  ('?ReportSchools') (50000)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') (50000)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') (50000)
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') (50000)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') (50000)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') (50000)
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') (50000)
+
+%ButtonParameters DEPEND %Control STRING TIMES 20
+WHEN  ('?BrowseEmployees') ('')
+WHEN  ('?BrowsePhones') ('')
+WHEN  ('?BrowseSalary') ('')
+WHEN  ('?BrowseBenefits') ('')
+WHEN  ('?BrowseQualification') ('')
+WHEN  ('?BrowseSchools') ('')
+WHEN  ('?BrowseLinkBenefitsEmployee') ('')
+WHEN  ('?BrowseLinkEmployeeQualification') ('')
+WHEN  ('?ReportEmployees') ('')
+WHEN  ('?ReportPhones') ('')
+WHEN  ('?ReportSalary') ('')
+WHEN  ('?ReportBenefits') ('')
+WHEN  ('?ReportQualification') ('')
+WHEN  ('?ReportSchools') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') ('')
+
+%ButtonRequest DEPEND %Control STRING TIMES 20
+WHEN  ('?BrowseEmployees') ('')
+WHEN  ('?BrowsePhones') ('')
+WHEN  ('?BrowseSalary') ('')
+WHEN  ('?BrowseBenefits') ('')
+WHEN  ('?BrowseQualification') ('')
+WHEN  ('?BrowseSchools') ('')
+WHEN  ('?BrowseLinkBenefitsEmployee') ('')
+WHEN  ('?BrowseLinkEmployeeQualification') ('')
+WHEN  ('?ReportEmployees') ('')
+WHEN  ('?ReportPhones') ('')
+WHEN  ('?ReportSalary') ('')
+WHEN  ('?ReportBenefits') ('')
+WHEN  ('?ReportQualification') ('')
+WHEN  ('?ReportSchools') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:GuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey') ('')
+WHEN  ('?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:GuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey') ('')
+WHEN  ('?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey') ('')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[WINDOW]
+AppFrame APPLICATION('Application'),AT(,,505,318),STATUS(-1,80,120,45),MAX,RESIZE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,ICON('WAFRAME.ICO'),FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  MENUBAR,USE(?Menubar)
+       MENU('&File'),USE(?FileMenu)
+       ITEM('&Print Setup ...'),USE(?PrintSetup),MSG('Setup printer'),STD(STD:PrintSetup)
+       ITEM,SEPARATOR
+       ITEM('E&xit'),USE(?Exit),MSG('Exit this application'),STD(STD:Close)
+       END
+       MENU('&Edit'),USE(?EditMenu)
+       ITEM('Cu&t'),USE(?Cut),MSG('Cut Selection To Clipboard'),STD(STD:Cut)
+       ITEM('&Copy'),USE(?Copy),MSG('Copy Selection To Clipboard'),STD(STD:Copy)
+       ITEM('&Paste'),USE(?Paste),MSG('Paste From Clipboard'),STD(STD:Paste)
+       END
+       MENU('&Browse'),USE(?BrowseMenu)
+       ITEM('Browse the Employees file'),USE(?BrowseEmployees),MSG('Browse Employees')
+       ITEM('Browse the Phones file'),USE(?BrowsePhones),MSG('Browse Phones')
+       ITEM('Browse the Salary file'),USE(?BrowseSalary),MSG('Browse Salary')
+       ITEM('Browse the Benefits file'),USE(?BrowseBenefits),MSG('Browse Benefits')
+       ITEM('Browse the Qualification file'),USE(?BrowseQualification),MSG('Browse Qualification')
+       ITEM('Browse the Schools file'),USE(?BrowseSchools),MSG('Browse Schools')
+       ITEM('Browse the LinkBenefitsEmployee file'),USE(?BrowseLinkBenefitsEmployee),MSG('Browse LinkBenefitsEmployee')
+       ITEM('Browse the LinkEmployeeQualification file'),USE(?BrowseLinkEmployeeQualification),MSG('Browse LinkEmployeeQualification')
+       END
+       MENU('&Reports'),USE(?ReportMenu),MSG('Report data')
+       ITEM('Print the Employees file'),USE(?ReportEmployees),MSG('Print in record order')
+       ITEM('Print the Phones file'),USE(?ReportPhones),MSG('Print in record order')
+       ITEM('Print the Salary file'),USE(?ReportSalary),MSG('Print in record order')
+       ITEM('Print the Benefits file'),USE(?ReportBenefits),MSG('Print in record order')
+       ITEM('Print the Qualification file'),USE(?ReportQualification),MSG('Print in record order')
+       ITEM('Print the Schools file'),USE(?ReportSchools),MSG('Print in record order')
+       MENU('Report the LinkBenefitsEmployee file'),USE(?ReportLinkBenefitsEmployee)
+       ITEM('Print by Lin:GuidKey key'),USE(?ReportLinkBenefitsEmployeeByLin:GuidKey),MSG('Print ordered by the Lin:GuidKey key')
+       ITEM('Print by Lin:BenefitsGuidKey key'),USE(?ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey),MSG('Print ordered by the Lin:BenefitsGuidKey key')
+       ITEM('Print by Lin:EmployeeGuidKey key'),USE(?ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey),MSG('Print ordered by the Lin:EmployeeGuidKey key')
+       END
+       MENU('Report the LinkEmployeeQualification file'),USE(?ReportLinkEmployeeQualification)
+       ITEM('Print by Lin2:GuidKey key'),USE(?ReportLinkEmployeeQualificationByLin2:GuidKey),MSG('Print ordered by the Lin2:GuidKey key')
+       ITEM('Print by Lin2:EmployeeGuidKey key'),USE(?ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey),MSG('Print ordered by the Lin2:EmployeeGuidKey key')
+       ITEM('Print by Lin2:QualificationGuidKey key'),USE(?ReportLinkEmployeeQualificationByLin2:QualificationGuidKey),MSG('Print ordered by the Lin2:QualificationGuidKey key')
+       END
+       END
+       MENU('&Window'),USE(?WindowMenu),STD(STD:WindowList)
+       ITEM('T&ile'),USE(?Tile),MSG('Arrange multiple opened windows'),STD(STD:TileWindow)
+       ITEM('&Cascade'),USE(?Cascade),MSG('Arrange multiple opened windows'),STD(STD:CascadeWindow)
+       ITEM('&Arrange Icons'),USE(?Arrange),MSG('Arrange the icons for minimized windows'),STD(STD:ArrangeIcons)
+       END
+       MENU('&Help'),USE(?HelpMenu)
+       ITEM('&Contents'),USE(?Helpindex),MSG('View the contents of the help file'),STD(STD:HelpIndex)
+       ITEM('&Search for Help On...'),USE(?HelpSearch),MSG('Search for help on a subject'),STD(STD:HelpSearch)
+       ITEM('&How to Use Help'),USE(?HelpOnHelp),MSG('Provides general instructions on using help'),STD(STD:HelpOnHelp)
+       END
+  END
+ END
+[PROCEDURE]
+NAME BrowseEmployees
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Employees file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Employees
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateEmployees)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Employees file'),AT(,,358,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseEmployees'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,342,124),USE(?Browse:1),MSG('Browsing the Employees file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@80L(2)|M~Job Title~L(2)@s20@80L(2)|M~Address~L(2)@s255@80L(2)|M~Phone Guid~L(2)@s20@64R(2)|M~Date~C(0)@n-14@68L(2)|M~Guid~L(2)@s16@68L(2)|M~Guid~L(2)@s16@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Emp:Full_Names,Emp:Job_Title,Emp:Address,Emp:PhoneGuid,Emp:Employment_Date,Emp:QualificationGuid,Emp:SalaryGuid)
+    BUTTON('&View'),AT(138,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(246,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(300,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,350,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(250,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(304,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportEmployees
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Employees File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Employees
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Employees'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Employees Report'),AT(250,1020,8000,9480),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,770),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Employees file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,430),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,430),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,430),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,430),COLOR(00H),USE(?HeaderLine:3)
+         STRING('Name'),AT(50,390,1900,170),TRN,USE(?HeaderTitle:1)
+         STRING('Job Title'),AT(2050,390,1900,170),TRN,USE(?HeaderTitle:2)
+         STRING('Address'),AT(4050,390,1900,170),TRN,USE(?HeaderTitle:3)
+         STRING('Phone Guid'),AT(6050,390,1900,170),TRN,USE(?HeaderTitle:4)
+         STRING('Date'),AT(50,570,1900,170),TRN,USE(?HeaderTitle:5)
+         STRING('Guid'),AT(2050,570,1900,170),TRN,USE(?HeaderTitle:6)
+         STRING('Guid'),AT(4050,570,1900,170),TRN,USE(?HeaderTitle:7)
+       END
+Detail DETAIL,AT(0,0,8000,500),USE(?Detail)
+         LINE,AT(0,0,0,500),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,500),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,500),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,500),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,500),COLOR(00H),USE(?DetailLine:4)
+         STRING(@s100),USE(Emp:Full_Names),AT(50,50,1900,170)
+         STRING(@s20),USE(Emp:Job_Title),AT(2050,50,1900,170)
+         STRING(@s255),USE(Emp:Address),AT(4050,50,1900,170)
+         STRING(@s20),USE(Emp:PhoneGuid),AT(6050,50,1900,170)
+         STRING(@n-14),USE(Emp:Employment_Date),RIGHT(1),AT(50,230,1900,170)
+         STRING(@s16),USE(Emp:QualificationGuid),AT(2050,230,1900,170)
+         STRING(@s16),USE(Emp:SalaryGuid),AT(4050,230,1900,170)
+         LINE,AT(0,500,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowsePhones
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Phones file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Phones
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdatePhones)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Phones file'),AT(,,228,198),IMM,RESIZE,GRAY,MDI,HLP('BrowsePhones'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,212,124),USE(?Browse:1),MSG('Browsing the Phones file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Phone Type~L(2)@s20@80L(2)|M~Phone Number~L(2)@s20@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Pho:Phone_Type,Pho:Phone_Number)
+    BUTTON('&View'),AT(8,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(62,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(116,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(170,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,220,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(120,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(174,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportPhones
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Phones File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Phones
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Phones'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Phones Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Phones file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         STRING('Phone Type'),AT(50,390,3900,170),TRN,USE(?HeaderTitle:1)
+         STRING('Phone Number'),AT(4050,390,3900,170),TRN,USE(?HeaderTitle:2)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         STRING(@s20),USE(Pho:Phone_Type),AT(50,50,3900,170)
+         STRING(@s20),USE(Pho:Phone_Number),AT(4050,50,3900,170)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseSalary
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Salary file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Salary
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateSalary)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Salary file'),AT(,,228,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseSalary'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,212,124),USE(?Browse:1),MSG('Browsing the Salary file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Salary Type~L(2)@s20@76D(32)|M~Salary~C(0)@n-17.2@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Sal:Salary_Type,Sal:Salary)
+    BUTTON('&View'),AT(8,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(62,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(116,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(170,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,220,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(120,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(174,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportSalary
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Salary File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Salary
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Salary'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Salary Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Salary file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         STRING('Salary Type'),AT(50,390,3900,170),TRN,USE(?HeaderTitle:1)
+         STRING('Salary'),AT(4050,390,3900,170),TRN,USE(?HeaderTitle:2)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         STRING(@s20),USE(Sal:Salary_Type),AT(50,50,3900,170)
+         STRING(@n-17.2),USE(Sal:Salary),DECIMAL(12),AT(4050,50,3900,170)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseBenefits
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Benefits file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Benefits
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateBenefits)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Benefits file'),AT(,,236,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseBenefits'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,220,124),USE(?Browse:1),MSG('Browsing the Benefits file'),IMM,HVSCROLL,|
+      FORMAT('68L(2)|M~Guid~L(2)@s16@80L(2)|M~Benefit Type~L(2)@s20@80L(2)|M~Description~L(2)@s255@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Ben:EmployeeGuid,Ben:Benefit_Type,Ben:Description)
+    BUTTON('&View'),AT(16,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(70,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(124,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(178,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,228,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(128,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(182,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportBenefits
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Benefits File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Benefits
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Benefits'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Benefits Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Benefits file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2666,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(5332,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         STRING('Guid'),AT(50,390,2566,170),TRN,USE(?HeaderTitle:1)
+         STRING('Benefit Type'),AT(2716,390,2566,170),TRN,USE(?HeaderTitle:2)
+         STRING('Description'),AT(5382,390,2566,170),TRN,USE(?HeaderTitle:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2666,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(5332,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         STRING(@s16),USE(Ben:EmployeeGuid),AT(50,50,2566,170)
+         STRING(@s20),USE(Ben:Benefit_Type),AT(2716,50,2566,170)
+         STRING(@s255),USE(Ben:Description),AT(5382,50,2566,170)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseQualification
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Qualification file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Qualification
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateQualification)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Qualification file'),AT(,,228,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseQualification'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,212,124),USE(?Browse:1),MSG('Browsing the Qualification file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@20L(2)|M~Year~L(2)@s4@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Qua:Major,Qua:Year)
+    BUTTON('&View'),AT(8,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(62,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(116,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(170,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,220,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(120,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(174,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportQualification
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Qualification File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Qualification
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Qualification'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Qualification Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Qualification file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         STRING('Name'),AT(50,390,3900,170),TRN,USE(?HeaderTitle:1)
+         STRING('Year'),AT(4050,390,3900,170),TRN,USE(?HeaderTitle:2)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         STRING(@s100),USE(Qua:Major),AT(50,50,3900,170)
+         STRING(@s4),USE(Qua:Year),AT(4050,50,3900,170)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseSchools
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the Schools file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Schools
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateSchools)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the Schools file'),AT(,,228,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseSchools'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,212,124),USE(?Browse:1),MSG('Browsing the Schools file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@80L(2)|M~Address~L(2)@s255@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Sch:Name,Sch:Address)
+    BUTTON('&View'),AT(8,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(62,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(116,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(170,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,220,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(120,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(174,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportSchools
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the Schools File'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+Schools
+[INSTANCE]
+0
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report Schools'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('Schools Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report Schools file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         STRING('Name'),AT(50,390,3900,170),TRN,USE(?HeaderTitle:1)
+         STRING('Address'),AT(4050,390,3900,170),TRN,USE(?HeaderTitle:2)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         STRING(@s100),USE(Sch:Name),AT(50,50,3900,170)
+         STRING(@s255),USE(Sch:Address),AT(4050,50,3900,170)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseLinkBenefitsEmployee
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the LinkBenefitsEmployee file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+LinkBenefitsEmployee
+[INSTANCE]
+1
+[KEY]
+Lin:GuidKey
+[OTHERS]
+Benefits
+Employees
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 2
+WHEN  ('?SelectBenefits') ('Call a Procedure')
+WHEN  ('?SelectEmployees') ('Call a Procedure')
+
+%ButtonRunName DEPEND %Control STRING TIMES 2
+WHEN  ('?SelectBenefits') ('')
+WHEN  ('?SelectEmployees') ('')
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 2
+WHEN  ('?SelectBenefits') ('')
+WHEN  ('?SelectEmployees') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 2
+WHEN  ('?SelectBenefits') (SelectBenefits)
+WHEN  ('?SelectEmployees') (SelectEmployees)
+
+%ButtonThread DEPEND %Control LONG TIMES 2
+WHEN  ('?SelectBenefits') (0)
+WHEN  ('?SelectEmployees') (0)
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 2
+WHEN  ('?SelectBenefits') (025000)
+WHEN  ('?SelectEmployees') (025000)
+
+%ButtonParameters DEPEND %Control STRING TIMES 2
+WHEN  ('?SelectBenefits') ('')
+WHEN  ('?SelectEmployees') ('')
+
+%ButtonRequest DEPEND %Control STRING TIMES 2
+WHEN  ('?SelectBenefits') ('Select')
+WHEN  ('?SelectEmployees') ('Select')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('Step')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  (1,2)
+%SortCondition DEPEND %SortOrder @S255 TIMES 2
+WHEN  (1) ('CHOICE(?CurrentTab) = 2')
+WHEN  (2) ('CHOICE(?CurrentTab) = 3')
+%SortKey DEPEND %SortOrder KEY TIMES 2
+WHEN  (1) (Lin:BenefitsGuidKey)
+WHEN  (2) (Lin:EmployeeGuidKey)
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 2
+WHEN  (1) (Lin:BenefitsGuid)
+WHEN  (2) (Lin:EmployeeGuid)
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) (Lin:BenefitsGuid)
+WHEN  (2) (Lin:EmployeeGuid)
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) ()
+WHEN  (2) ()
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) ()
+WHEN  (2) ()
+%SortRangeFile DEPEND %SortOrder FILE TIMES 2
+WHEN  (1) (Benefits)
+WHEN  (2) (Employees)
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('File Relationship')
+WHEN  (2) ('File Relationship')
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('Movable Thumb')
+WHEN  (2) ('Movable Thumb')
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 2
+WHEN  (1) ('Runtime')
+WHEN  (2) ('Runtime')
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 2
+WHEN  (1)TIMES 0
+WHEN  (2)TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (1)
+WHEN  (2) (1)
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (0)
+WHEN  (2) (0)
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (0)
+WHEN  (2) (0)
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateLinkBenefitsEmployee)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the LinkBenefitsEmployee file'),AT(,,282,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseLinkBenefitsEmployee'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,266,124),USE(?Browse:1),MSG('Browsing the LinkBenefitsEmployee file'),IMM,HVSCROLL,|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List)
+    BUTTON('&View'),AT(62,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(116,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(170,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(224,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,274,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) GuidKey'),USE(?Tab:2)
+    END
+    TAB('&2) BenefitsGuidKey'),USE(?Tab:3)
+       BUTTON('Select Benefits'),ICON('WAPARENT.ICO'),FLAT,MSG('Select Parent Field'),TIP('Select Parent Field'),LEFT,USE(?SelectBenefits),AT(8,158,50,14)
+    END
+    TAB('&3) EmployeeGuidKey'),USE(?Tab:4)
+       BUTTON('Select Employees'),ICON('WAPARENT.ICO'),FLAT,MSG('Select Parent Field'),TIP('Select Parent Field'),LEFT,USE(?SelectEmployees),AT(8,158,50,14)
+    END
+  END
+  BUTTON('&Close'),AT(174,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(228,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportLinkBenefitsEmployeeByLin:GuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkBenefitsEmployee File by Lin:GuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkBenefitsEmployee
+[INSTANCE]
+0
+[KEY]
+Lin:GuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkBenefitsEmployee'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkBenefitsEmployee Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkBenefitsEmployee file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME ReportLinkBenefitsEmployeeByLin:BenefitsGuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkBenefitsEmployee File by Lin:BenefitsGuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkBenefitsEmployee
+[INSTANCE]
+0
+[KEY]
+Lin:BenefitsGuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkBenefitsEmployee'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkBenefitsEmployee Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkBenefitsEmployee file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME ReportLinkBenefitsEmployeeByLin:EmployeeGuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkBenefitsEmployee File by Lin:EmployeeGuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkBenefitsEmployee
+[INSTANCE]
+0
+[KEY]
+Lin:EmployeeGuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkBenefitsEmployee'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkBenefitsEmployee Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkBenefitsEmployee file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME BrowseLinkEmployeeQualification
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Browse the LinkEmployeeQualification file'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+LinkEmployeeQualification
+[INSTANCE]
+1
+[KEY]
+Lin2:GuidKey
+[OTHERS]
+Employees
+Qualification
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 1
+WHEN  ('?SelectQualification') ('Call a Procedure')
+
+%ButtonRunName DEPEND %Control STRING TIMES 1
+WHEN  ('?SelectQualification') ('')
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 1
+WHEN  ('?SelectQualification') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 1
+WHEN  ('?SelectQualification') (SelectQualification)
+
+%ButtonThread DEPEND %Control LONG TIMES 1
+WHEN  ('?SelectQualification') (0)
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 1
+WHEN  ('?SelectQualification') (025000)
+
+%ButtonParameters DEPEND %Control STRING TIMES 1
+WHEN  ('?SelectQualification') ('')
+
+%ButtonRequest DEPEND %Control STRING TIMES 1
+WHEN  ('?SelectQualification') ('Select')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('Step')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  (1,2)
+%SortCondition DEPEND %SortOrder @S255 TIMES 2
+WHEN  (1) ('CHOICE(?CurrentTab) = 2')
+WHEN  (2) ('CHOICE(?CurrentTab) = 3')
+%SortKey DEPEND %SortOrder KEY TIMES 2
+WHEN  (1) (Lin2:EmployeeGuidKey)
+WHEN  (2) (Lin2:QualificationGuidKey)
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('Step')
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 2
+WHEN  (1) ('')
+WHEN  (2) ('')
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 1
+WHEN  (1) (Lin2:EmployeeGuid)
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) (Lin2:EmployeeGuid)
+WHEN  (2) ()
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) ()
+WHEN  (2) ()
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 2
+WHEN  (1) ()
+WHEN  (2) ()
+%SortRangeFile DEPEND %SortOrder FILE TIMES 2
+WHEN  (1) (Qualification)
+WHEN  (2) ()
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('File Relationship')
+WHEN  (2) ('')
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 2
+WHEN  (1) ('Movable Thumb')
+WHEN  (2) ('Movable Thumb')
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 2
+WHEN  (1) ('Runtime')
+WHEN  (2) ('Runtime')
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 2
+WHEN  (1)TIMES 0
+WHEN  (2)TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (1)
+WHEN  (2) (1)
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (0)
+WHEN  (2) (0)
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 2
+WHEN  (1) (0)
+WHEN  (2) (0)
+[ADDITION]
+NAME ABC BrowseViewButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 3
+PARENT 1
+PROCPROP
+[PROMPTS]
+%UpdateProcedure PROCEDURE  (UpdateLinkEmployeeQualification)
+%EditViaPopup LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Browse the LinkEmployeeQualification file'),AT(,,282,198),IMM,RESIZE,GRAY,MDI,HLP('BrowseLinkEmployeeQualification'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,266,124),USE(?Browse:1),MSG('Browsing the LinkEmployeeQualification file'),IMM,HVSCROLL,|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List)
+    BUTTON('&View'),AT(62,158,50,14),USE(?View:2),ICON('WAVIEW.ICO'),FLAT,MSG('View Record'),TIP('View Record'),LEFT,#SEQ(2),#ORIG(?View)
+    BUTTON('&Insert'),AT(116,158,50,14),USE(?Insert:3),ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'),TIP('Insert a Record'),LEFT,#SEQ(3),#ORIG(?Insert),#LINK(?Change:3)
+    BUTTON('&Change'),AT(170,158,50,14),USE(?Change:3),ICON('WACHANGE.ICO'),FLAT,MSG('Change the Record'),TIP('Change the Record'),LEFT,DEFAULT,#SEQ(3),#ORIG(?Change),#LINK(?Delete:3)
+    BUTTON('&Delete'),AT(224,158,50,14),USE(?Delete:3),ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'),TIP('Delete the Record'),LEFT,#SEQ(3),#ORIG(?Delete),#LINK(?Insert:3)
+  SHEET,AT(4,4,274,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) GuidKey'),USE(?Tab:2)
+    END
+    TAB('&2) EmployeeGuidKey'),USE(?Tab:3)
+       BUTTON('Qualifica...'),ICON('WAPARENT.ICO'),FLAT,MSG('Select Parent Field'),TIP('Select Parent Field'),LEFT,USE(?SelectQualification),AT(8,158,16,14)
+    END
+    TAB('&3) QualificationGuidKey'),USE(?Tab:4)
+    END
+  END
+  BUTTON('&Close'),AT(174,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(4),#ORIG(?Close)
+  BUTTON('&Help'),AT(228,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(5),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME ReportLinkEmployeeQualificationByLin2:GuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkEmployeeQualification File by Lin2:GuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkEmployeeQualification
+[INSTANCE]
+0
+[KEY]
+Lin2:GuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkEmployeeQualification'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkEmployeeQualification Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkEmployeeQualification file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME ReportLinkEmployeeQualificationByLin2:EmployeeGuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkEmployeeQualification File by Lin2:EmployeeGuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkEmployeeQualification
+[INSTANCE]
+0
+[KEY]
+Lin2:EmployeeGuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkEmployeeQualification'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkEmployeeQualification Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkEmployeeQualification file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME ReportLinkEmployeeQualificationByLin2:QualificationGuidKey
+CATEGORY 'Report'
+[COMMON]
+DESCRIPTION 'Print the LinkEmployeeQualification File by Lin2:QualificationGuidKey'
+FROM ABC Report
+[DATA]
+[FILES]
+[PRIMARY]
+LinkEmployeeQualification
+[INSTANCE]
+0
+[KEY]
+Lin2:QualificationGuidKey
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('No Zoom')
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  (1)
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  (1)
+[WINDOW]
+ProgressWindow WINDOW('Report LinkEmployeeQualification'),|
+       AT(,,142,59),TIMER(1),GRAY,DOUBLE,WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER
+       PROGRESS,USE(Progress:Thermometer),AT(15,15,111,12),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(0,3,141,10),USE(?Progress:UserString),CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(0,30,141,10),USE(?Progress:PctText),CENTER,#ORIG(?Progress:PctText)
+       BUTTON('Cancel'),AT(46,42,49,15),USE(?Progress:Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel Report'),TIP('Cancel Report'),LEFT,#ORIG(?Progress:Cancel)
+     END
+[REPORT]
+Report REPORT('LinkEmployeeQualification Report'),AT(250,850,8000,9650),PRE(RPT),PAPER(PAPER:LETTER),FONT('Microsoft Sans Serif',8,,400,1),THOUS
+       HEADER,AT(250,250,8000,600),USE(?Header),FONT('Microsoft Sans Serif',8,,400,1)
+         STRING('Report LinkEmployeeQualification file'),AT(0,20,8000,220),USE(?ReportTitle),CENTER,FONT('Microsoft Sans Serif',8,,400,1)
+         BOX,AT(0,350,8000,250),COLOR(00H),USE(?HeaderBox)
+         LINE,AT(2000,350,0,250),COLOR(00H),USE(?HeaderLine:1)
+         LINE,AT(4000,350,0,250),COLOR(00H),USE(?HeaderLine:2)
+         LINE,AT(6000,350,0,250),COLOR(00H),USE(?HeaderLine:3)
+       END
+Detail DETAIL,AT(0,0,8000,250),USE(?Detail)
+         LINE,AT(0,0,0,250),COLOR(00H),USE(?DetailLine:0)
+         LINE,AT(2000,0,0,250),COLOR(00H),USE(?DetailLine:1)
+         LINE,AT(4000,0,0,250),COLOR(00H),USE(?DetailLine:2)
+         LINE,AT(6000,0,0,250),COLOR(00H),USE(?DetailLine:3)
+         LINE,AT(8000,0,0,250),COLOR(00H),USE(?DetailLine:4)
+         LINE,AT(0,250,8000,0),COLOR(00H),USE(?DetailEndLine)
+       END
+       FOOTER,AT(250,10500,8000,250),USE(?Footer)
+         STRING('Date:'),AT(115,52,344,135),USE(?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(490,52,927,135),USE(?ReportDateStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1625,52,271,135),USE(?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,52,927,135),USE(?ReportTimeStamp:2),TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(6950,52,700,135),FONT('Arial',8,,FONT:regular),PAGENO,USE(?PageCount:2)
+       END
+       FORM,AT(250,250,8000,10500),USE(?Form),FONT('Microsoft Sans Serif',8,,400,1)
+         IMAGE(''),AT(0,0,8000,10500),USE(?FormImage),TILED
+       END
+     END
+[PROCEDURE]
+NAME SelectSalary
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Select a Salary Record'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Salary
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseSelectButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[PROMPTS]
+%HideIfDisabled LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Select a Salary Record'),AT(,,164,198),IMM,RESIZE,GRAY,MDI,HLP('SelectSalary'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,148,124),USE(?Browse:1),MSG('Browsing the Salary file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Salary Type~L(2)@s20@76D(32)|M~Salary~C(0)@n-17.2@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Sal:Salary_Type,Sal:Salary)
+    BUTTON('&Select'),AT(106,158,50,14),USE(?Select:2),ICON('WASELECT.ICO'),FLAT,MSG('Select the Record'),TIP('Select the Record'),LEFT,#SEQ(2),#ORIG(?Select)
+  SHEET,AT(4,4,156,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(56,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(3),#ORIG(?Close)
+  BUTTON('&Help'),AT(110,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateEmployees
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Employees'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Employees
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Employees'),AT(,,358,182),RESIZE,IMM,GRAY,MDI,HLP('UpdateEmployees'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,350,156),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Name:'),USE(?Emp:Full_Names:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,20),#ORIG(?Emp:Full_Names:Prompt),#LINK(Emp:Full_Names)
+         ENTRY(@s100),USE(Emp:Full_Names),REQ,AT(61,20,289,10),#ORIG(Emp:Full_Names),#LINK(?Emp:Full_Names:Prompt)
+         PROMPT('Job Title:'),USE(?Emp:Job_Title:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,34),#ORIG(?Emp:Job_Title:Prompt),#LINK(Emp:Job_Title)
+         LIST,USE(Emp:Job_Title),FONT('Segoe UI',10),FROM('Developer|Administrator|Cleaner|Gardner|Receptionist|HR|COO|CFO|CEO|Intern'),AT(61,34,100,80),#ORIG(Emp:Job_Title),#LINK(?Emp:Job_Title:Prompt)
+         PROMPT('Address:'),USE(?Emp:Address:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,118),#ORIG(?Emp:Address:Prompt),#LINK(Emp:Address)
+         ENTRY(@s255),USE(Emp:Address),AT(61,118,289,10),#ORIG(Emp:Address),#LINK(?Emp:Address:Prompt)
+         PROMPT('Phone Guid:'),USE(?Emp:PhoneGuid:Prompt),FONT('Segoe UI',10),TRN,AT(8,132),#ORIG(?Emp:PhoneGuid:Prompt),#LINK(Emp:PhoneGuid)
+         ENTRY(@s20),USE(Emp:PhoneGuid),REQ,AT(61,132,84,10),#ORIG(Emp:PhoneGuid),#LINK(?Emp:PhoneGuid:Prompt)
+         PROMPT('Date:'),USE(?Emp:Employment_Date:Prompt),TRN,AT(8,146),#ORIG(?Emp:Employment_Date:Prompt),#LINK(Emp:Employment_Date)
+         ENTRY(@n-14),USE(Emp:Employment_Date),RIGHT(1),REQ,AT(61,146,64,10),#ORIG(Emp:Employment_Date),#LINK(?Emp:Employment_Date:Prompt)
+    END
+    TAB('&2) General (cont.)'),USE(?Tab:2)
+         PROMPT('Guid:'),USE(?Emp:QualificationGuid:Prompt),FONT('Segoe UI',10,,,CHARSET:ANSI),TRN,AT(8,20),#ORIG(?Emp:QualificationGuid:Prompt),#LINK(Emp:QualificationGuid)
+         ENTRY(@s16),USE(Emp:QualificationGuid),REQ,AT(61,20,68,10),#ORIG(Emp:QualificationGuid),#LINK(?Emp:QualificationGuid:Prompt)
+         PROMPT('Guid:'),USE(?Emp:SalaryGuid:Prompt),FONT('Segoe UI',10,,,CHARSET:ANSI),TRN,AT(8,34),#ORIG(?Emp:SalaryGuid:Prompt),#LINK(Emp:SalaryGuid)
+         ENTRY(@s16),USE(Emp:SalaryGuid),REQ,AT(61,34,68,10),#ORIG(Emp:SalaryGuid),#LINK(?Emp:SalaryGuid:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(196,164,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(250,164,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(304,164,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME SelectEmployees
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Select a Employees Record'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Employees
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseSelectButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[PROMPTS]
+%HideIfDisabled LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Select a Employees Record'),AT(,,358,198),IMM,RESIZE,GRAY,MDI,HLP('SelectEmployees'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,342,124),USE(?Browse:1),MSG('Browsing the Employees file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@80L(2)|M~Job Title~L(2)@s20@80L(2)|M~Address~L(2)@s255@80L(2)|M~Phone Guid~L(2)@s20@64R(2)|M~Date~C(0)@n-14@68L(2)|M~Guid~L(2)@s16@68L(2)|M~Guid~L(2)@s16@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Emp:Full_Names,Emp:Job_Title,Emp:Address,Emp:PhoneGuid,Emp:Employment_Date,Emp:QualificationGuid,Emp:SalaryGuid)
+    BUTTON('&Select'),AT(300,158,50,14),USE(?Select:2),ICON('WASELECT.ICO'),FLAT,MSG('Select the Record'),TIP('Select the Record'),LEFT,#SEQ(2),#ORIG(?Select)
+  SHEET,AT(4,4,350,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(250,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(3),#ORIG(?Close)
+  BUTTON('&Help'),AT(304,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdatePhones
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Phones'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Phones
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Phones'),AT(,,172,92),RESIZE,IMM,GRAY,MDI,HLP('UpdatePhones'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,164,66),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Phone Type:'),USE(?Pho:Phone_Type:Prompt),FONT('Segoe UI',10),TRN,AT(8,20),#ORIG(?Pho:Phone_Type:Prompt),#LINK(Pho:Phone_Type)
+         LIST,USE(Pho:Phone_Type),FONT('Segoe UI',10),FROM('Work|Home|Cell|Other'),AT(64,20,100,32),#ORIG(Pho:Phone_Type),#LINK(?Pho:Phone_Type:Prompt)
+         PROMPT('Phone Number:'),USE(?Pho:Phone_Number:Prompt),TRN,AT(8,56),#ORIG(?Pho:Phone_Number:Prompt),#LINK(Pho:Phone_Number)
+         ENTRY(@s20),USE(Pho:Phone_Number),AT(64,56,84,10),#ORIG(Pho:Phone_Number),#LINK(?Pho:Phone_Number:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(10,74,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(64,74,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(118,74,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateSalary
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Salary'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Salary
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Salary'),AT(,,169,76),RESIZE,IMM,GRAY,MDI,HLP('UpdateSalary'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,161,50),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Salary Type:'),USE(?Sal:Salary_Type:Prompt),TRN,AT(8,20),#ORIG(?Sal:Salary_Type:Prompt),#LINK(Sal:Salary_Type)
+         LIST,USE(Sal:Salary_Type),FROM('Wage|Rate'),AT(61,20,100,16),#ORIG(Sal:Salary_Type),#LINK(?Sal:Salary_Type:Prompt)
+         PROMPT('Salary:'),USE(?Sal:Salary:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,40),#ORIG(?Sal:Salary:Prompt),#LINK(Sal:Salary)
+         ENTRY(@n-17.2),USE(Sal:Salary),DECIMAL(12),AT(61,40,76,10),#ORIG(Sal:Salary),#LINK(?Sal:Salary:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(7,58,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(61,58,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(115,58,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateBenefits
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Benefits'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Benefits
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Benefits'),AT(,,358,122),RESIZE,IMM,GRAY,MDI,HLP('UpdateBenefits'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,350,96),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Guid:'),USE(?Ben:EmployeeGuid:Prompt),FONT('Segoe UI',10,,,CHARSET:ANSI),TRN,AT(8,20),#ORIG(?Ben:EmployeeGuid:Prompt),#LINK(Ben:EmployeeGuid)
+         ENTRY(@s16),USE(Ben:EmployeeGuid),REQ,AT(64,20,68,10),#ORIG(Ben:EmployeeGuid),#LINK(?Ben:EmployeeGuid:Prompt)
+         PROMPT('Benefit Type:'),USE(?Ben:Benefit_Type:Prompt),FONT('Segoe UI',10),TRN,AT(8,34),#ORIG(?Ben:Benefit_Type:Prompt),#LINK(Ben:Benefit_Type)
+         LIST,USE(Ben:Benefit_Type),FONT('Segoe UI',10),FROM('None|Health|Pension|Car Services|Laptop|Other'),AT(64,34,100,48),#ORIG(Ben:Benefit_Type),#LINK(?Ben:Benefit_Type:Prompt)
+         PROMPT('Description:'),USE(?Ben:Description:Prompt),FONT('Segoe UI',10),TRN,AT(8,86),#ORIG(?Ben:Description:Prompt),#LINK(Ben:Description)
+         ENTRY(@s255),USE(Ben:Description),AT(64,86,286,10),#ORIG(Ben:Description),#LINK(?Ben:Description:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(196,104,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(250,104,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(304,104,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME SelectSchools
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Select a Schools Record'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Schools
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseSelectButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[PROMPTS]
+%HideIfDisabled LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Select a Schools Record'),AT(,,168,198),IMM,RESIZE,GRAY,MDI,HLP('SelectSchools'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,152,124),USE(?Browse:1),MSG('Browsing the Schools file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@80L(2)|M~Address~L(2)@s255@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Sch:Name,Sch:Address)
+    BUTTON('&Select'),AT(110,158,50,14),USE(?Select:2),ICON('WASELECT.ICO'),FLAT,MSG('Select the Record'),TIP('Select the Record'),LEFT,#SEQ(2),#ORIG(?Select)
+  SHEET,AT(4,4,160,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(60,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(3),#ORIG(?Close)
+  BUTTON('&Help'),AT(114,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateQualification
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Qualification'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Qualification
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Qualification'),AT(,,358,70),RESIZE,IMM,GRAY,MDI,HLP('UpdateQualification'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,350,44),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Name:'),USE(?Qua:Major:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,20),#ORIG(?Qua:Major:Prompt),#LINK(Qua:Major)
+         ENTRY(@s100),USE(Qua:Major),REQ,AT(61,20,289,10),#ORIG(Qua:Major),#LINK(?Qua:Major:Prompt)
+         PROMPT('Year:'),USE(?Qua:Year:Prompt),FONT('Segoe UI',10),TRN,AT(8,34),#ORIG(?Qua:Year:Prompt),#LINK(Qua:Year)
+         ENTRY(@s4),USE(Qua:Year),MSG('The year when the qualification was obtained '),TIP('The year when the qualification was obtained '),REQ,AT(61,34,40,10),#ORIG(Qua:Year),#LINK(?Qua:Year:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(196,52,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(250,52,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(304,52,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateSchools
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form Schools'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Schools
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form Schools'),AT(,,358,70),RESIZE,IMM,GRAY,MDI,HLP('UpdateSchools'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  SHEET,AT(4,4,350,44),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) General'),USE(?Tab:1)
+         PROMPT('Name:'),USE(?Sch:Name:Prompt),FONT('Segoe UI',,,,CHARSET:DEFAULT),TRN,AT(8,20),#ORIG(?Sch:Name:Prompt),#LINK(Sch:Name)
+         ENTRY(@s100),USE(Sch:Name),REQ,AT(61,20,289,10),#ORIG(Sch:Name),#LINK(?Sch:Name:Prompt)
+         PROMPT('Address:'),USE(?Sch:Address:Prompt),TRN,AT(8,34),#ORIG(?Sch:Address:Prompt),#LINK(Sch:Address)
+         ENTRY(@s255),USE(Sch:Address),REQ,AT(61,34,289,10),#ORIG(Sch:Address),#LINK(?Sch:Address:Prompt)
+    END
+  END
+  BUTTON('&OK'),AT(196,52,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(250,52,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(304,52,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME SelectBenefits
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Select a Benefits Record'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Benefits
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseSelectButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[PROMPTS]
+%HideIfDisabled LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Select a Benefits Record'),AT(,,236,198),IMM,RESIZE,GRAY,MDI,HLP('SelectBenefits'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,220,124),USE(?Browse:1),MSG('Browsing the Benefits file'),IMM,HVSCROLL,|
+      FORMAT('68L(2)|M~Guid~L(2)@s16@80L(2)|M~Benefit Type~L(2)@s20@80L(2)|M~Description~L(2)@s255@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Ben:EmployeeGuid,Ben:Benefit_Type,Ben:Description)
+    BUTTON('&Select'),AT(178,158,50,14),USE(?Select:2),ICON('WASELECT.ICO'),FLAT,MSG('Select the Record'),TIP('Select the Record'),LEFT,#SEQ(2),#ORIG(?Select)
+  SHEET,AT(4,4,228,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(128,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(3),#ORIG(?Close)
+  BUTTON('&Help'),AT(182,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateLinkBenefitsEmployee
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form LinkBenefitsEmployee'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+LinkBenefitsEmployee
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form LinkBenefitsEmployee'),AT(,,166,38),RESIZE,IMM,GRAY,MDI,HLP('UpdateLinkBenefitsEmployee'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  BUTTON('&OK'),AT(4,20,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(58,20,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(112,20,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME SelectQualification
+CATEGORY 'Browse'
+[COMMON]
+DESCRIPTION 'Select a Qualification Record'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+Qualification
+[INSTANCE]
+1
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%AcceptToolbarControl LONG (0)
+%EnableQuickScan LONG  (0)
+
+%LocatorType DEFAULT  ('')
+%OverrideDefaultLocator DEFAULT ('')
+%OverrideLocator DEFAULT ('')
+
+%RecordFilter @S255  ('')
+
+%RangeField COMPONENT  ()
+
+%RangeLimitType DEFAULT  ('')
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%ScrollBehavior DEFAULT  ('Movable Thumb')
+%ScrollKeyDistribution STRING  ('Runtime')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution @S10 TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder @S255 TIMES 0
+%SortKey DEPEND %SortOrder KEY TIMES 0
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideDefaultLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+%SortRecordFilter DEPEND %SortOrder @S255 TIMES 0
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0 !HOLA 0
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+%SortScrollKeyDistribution DEPEND %SortOrder STRING TIMES 0
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution @S10 TIMES 0
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+[ADDITION]
+NAME ABC BrowseSelectButton
+[INSTANCE]
+INSTANCE 2
+PARENT 1
+[PROMPTS]
+%HideIfDisabled LONG  (1)
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Select a Qualification Record'),AT(,,158,198),IMM,RESIZE,GRAY,MDI,HLP('SelectQualification'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+    LIST,AT(8,30,142,124),USE(?Browse:1),MSG('Browsing the Qualification file'),IMM,HVSCROLL,|
+      FORMAT('80L(2)|M~Name~L(2)@s100@20L(2)|M~Year~L(2)@s4@'),|
+      FROM(Queue:Browse:1),#SEQ(1),#ORIG(?List),#FIELDS(Qua:Major,Qua:Year)
+    BUTTON('&Select'),AT(100,158,50,14),USE(?Select:2),ICON('WASELECT.ICO'),FLAT,MSG('Select the Record'),TIP('Select the Record'),LEFT,#SEQ(2),#ORIG(?Select)
+  SHEET,AT(4,4,150,172),USE(?CurrentTab),#ORIG(CurrentTab)
+    TAB('&1) Record Order'),USE(?Tab:2)
+    END
+  END
+  BUTTON('&Close'),AT(50,180,50,14),USE(?Close),ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'),TIP('Close Window'),LEFT,#SEQ(3),#ORIG(?Close)
+  BUTTON('&Help'),AT(104,180,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
+[PROCEDURE]
+NAME UpdateLinkEmployeeQualification
+CATEGORY 'Form'
+[COMMON]
+DESCRIPTION 'Form LinkEmployeeQualification'
+FROM ABC Window
+[DATA]
+CurrentTab                STRING(80)
+[FILES]
+[PRIMARY]
+LinkEmployeeQualification
+[INSTANCE]
+2
+[PROMPTS]
+%ButtonAction DEPEND %Control STRING TIMES 0
+
+%ButtonRunName DEPEND %Control STRING TIMES 0
+
+%ButtonRunParameters DEPEND %Control STRING TIMES 0
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ButtonThread DEPEND %Control LONG TIMES 0
+
+%ButtonThreadStack DEPEND %Control @n7 TIMES 0
+
+%ButtonParameters DEPEND %Control STRING TIMES 0
+
+%ButtonRequest DEPEND %Control STRING TIMES 0
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded STRING TIMES 0
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage @S40  ('Record Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage @S40  ('Record Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage @S40  ('Record Will Be Deleted')
+%ViewMessage @S40  ('View Record')
+%MessageHeader LONG  (0)
+%ActionOnDelete STRING  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields @S255 TIMES 0
+
+%ActionOnCancel STRING  ('Confirm cancel')
+%MessageLocation STRING  ('Title Bar')
+%MessageStatusSection @n1  (0)
+
+%HistoryKey        DEFAULT (CtrlH)
+
+%AppendToTitle LONG  ()
+%AppendToTitleID @S255  ('')
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 5
+[ADDITION]
+NAME ABC WindowResize
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy    DEFAULT (1)
+%AppStrategy       DEFAULT ('Surface')
+%RestrictMinSize   DEFAULT (1)
+%WindowMinWidth    DEFAULT (0)
+%WindowMaxWidth    DEFAULT (0)
+[WINDOW]
+QuickWindow WINDOW('Form LinkEmployeeQualification'),AT(,,166,38),RESIZE,IMM,GRAY,MDI,HLP('UpdateLinkEmployeeQualification'),WALLPAPER('C:\Users\user\Downloads\bg.png'),TILED,FONT('Segoe UI',10,0,400,1),CENTER,SYSTEM
+  BUTTON('&OK'),AT(4,20,50,14),USE(?OK),ICON('WAOK.ICO'),FLAT,MSG('Accept data and close the window'),TIP('Accept data and close the window'),LEFT,DEFAULT,#SEQ(2),#ORIG(?OK)
+  BUTTON('&Cancel'),AT(58,20,50,14),USE(?Cancel),ICON('WACANCEL.ICO'),FLAT,MSG('Cancel operation'),TIP('Cancel operation'),LEFT,#SEQ(3),#ORIG(?Cancel)
+  BUTTON('&Help'),AT(112,20,50,14),USE(?Help),ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'),TIP('See Help Window'),LEFT,STD(STD:Help),#SEQ(4),#ORIG(?Help)
+ END
