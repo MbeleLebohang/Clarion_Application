@@ -14,6 +14,7 @@
                        INCLUDE('EMPLOYEESAPP001.INC'),ONCE        !Local module procedure declarations
                        INCLUDE('EMPLOYEESAPP002.INC'),ONCE        !Req'd for module callout resolution
                        INCLUDE('EMPLOYEESAPP003.INC'),ONCE        !Req'd for module callout resolution
+                       INCLUDE('EMPLOYEESAPP004.INC'),ONCE        !Req'd for module callout resolution
                      END
 
 
@@ -175,9 +176,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = 1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   SELF.Open(AppFrame)                                      ! Open window
   Do DefineListboxStyle
   INIMgr.Fetch('Main',AppFrame)                            ! Restore window settings from non-volatile store
@@ -262,32 +263,30 @@ ViewPosition           STRING(1024)                   !Entry's view position
 QuickWindow          WINDOW('Browse the Employees file'),AT(,,358,198),FONT('Segoe UI',10,COLOR:Black,FONT:regular, |
   CHARSET:DEFAULT),RESIZE,TILED,CENTER,GRAY,IMM,MDI,HLP('BrowseEmployees'),SYSTEM,WALLPAPER('C:\Users\u' & |
   'ser\Downloads\bg.png')
-                       LIST,AT(8,30,342,124),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Name~L(2)@s100@80L(2)|M~' & |
-  'Job Title~L(2)@s20@80L(2)|M~Address~L(2)@s255@80L(2)|M~Phone Guid~L(2)@s20@64R(2)|M~' & |
-  'Date~C(0)@n-14@68L(2)|M~Guid~L(2)@s16@68L(2)|M~Guid~L(2)@s16@'),FROM(Queue:Browse:1),IMM, |
-  MSG('Browsing the Employees file')
-                       BUTTON('&View'),AT(138,158,50,14),USE(?View:2),LEFT,ICON('WAVIEW.ICO'),FLAT,MSG('View Record'), |
+                       LIST,AT(2,2,354,153),USE(?Browse:1),HVSCROLL,FORMAT('80L(2)|M~Name~@s100@80L(2)|M~Job T' & |
+  'itle~@s20@80L(2)|M~Address~@s255@74L(2)|M~Phone ID~@s20@77R(2)|M~Date of Employment~' & |
+  'C(0)@n-14@68L(2)|M~Qualification ID~@s16@68L(2)|M~Salary ID~@s16@'),FROM(Queue:Browse:1), |
+  IMM,MSG('Browsing the Employees file')
+                       BUTTON('&View'),AT(138,158,50,14),USE(?View:2),LEFT,ICON('WAVIEW.ICO'),MSG('View Record'), |
   TIP('View Record')
-                       BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert:3),LEFT,ICON('WAINSERT.ICO'),FLAT,MSG('Insert a Record'), |
+                       BUTTON('&Insert'),AT(192,158,50,14),USE(?Insert:3),LEFT,ICON('WAINSERT.ICO'),MSG('Insert a Record'), |
   TIP('Insert a Record')
-                       BUTTON('&Change'),AT(246,158,50,14),USE(?Change:3),LEFT,ICON('WACHANGE.ICO'),DEFAULT,FLAT, |
-  MSG('Change the Record'),TIP('Change the Record')
-                       BUTTON('&Delete'),AT(300,158,50,14),USE(?Delete:3),LEFT,ICON('WADELETE.ICO'),FLAT,MSG('Delete the Record'), |
+                       BUTTON('&Change'),AT(246,158,50,14),USE(?Change:3),LEFT,ICON('WACHANGE.ICO'),DEFAULT,MSG('Change the Record'), |
+  TIP('Change the Record')
+                       BUTTON('&Delete'),AT(300,158,50,14),USE(?Delete:3),LEFT,ICON('WADELETE.ICO'),MSG('Delete the Record'), |
   TIP('Delete the Record')
-                       SHEET,AT(4,4,350,172),USE(?CurrentTab)
-                         TAB('&1) Record Order'),USE(?Tab:2)
-                         END
-                       END
-                       BUTTON('&Close'),AT(250,180,50,14),USE(?Close),LEFT,ICON('WACLOSE.ICO'),FLAT,MSG('Close Window'), |
+                       BUTTON('&Close'),AT(246,180,50,14),USE(?Close),LEFT,ICON('WACLOSE.ICO'),MSG('Close Window'), |
   TIP('Close Window')
-                       BUTTON('&Help'),AT(304,180,50,14),USE(?Help),LEFT,ICON('WAHELP.ICO'),FLAT,MSG('See Help Window'), |
+                       BUTTON('&Help'),AT(300,180,50,14),USE(?Help),LEFT,ICON('WAHELP.ICO'),MSG('See Help Window'), |
   STD(STD:Help),TIP('See Help Window')
+                       BUTTON('Export'),AT(192,180,50),USE(?ExportXMLFile)
                      END
 
 ThisWindow           CLASS(WindowManager)
 Init                   PROCEDURE(),BYTE,PROC,DERIVED
 Kill                   PROCEDURE(),BYTE,PROC,DERIVED
 Run                    PROCEDURE(USHORT Number,BYTE Request),BYTE,PROC,DERIVED
+TakeAccepted           PROCEDURE(),BYTE,PROC,DERIVED
                      END
 
 Toolbar              ToolbarClass
@@ -325,9 +324,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -387,6 +386,29 @@ ReturnValue          BYTE,AUTO
     UpdateEmployees
     ReturnValue = GlobalResponse
   END
+  RETURN ReturnValue
+
+
+ThisWindow.TakeAccepted PROCEDURE
+
+ReturnValue          BYTE,AUTO
+
+Looped BYTE
+  CODE
+  LOOP                                                     ! This method receive all EVENT:Accepted's
+    IF Looped
+      RETURN Level:Notify
+    ELSE
+      Looped = 1
+    END
+    CASE ACCEPTED()
+    OF ?ExportXMLFile
+      Export_File(Employees)
+    END
+  ReturnValue = PARENT.TakeAccepted()
+    RETURN ReturnValue
+  END
+  ReturnValue = Level:Fatal
   RETURN ReturnValue
 
 
@@ -663,9 +685,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -977,9 +999,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1294,9 +1316,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE
@@ -1614,9 +1636,9 @@ ReturnValue          BYTE,AUTO
   SELF.FirstField = ?Browse:1
   SELF.VCRRequest &= VCRRequest
   SELF.Errors &= GlobalErrors                              ! Set this windows ErrorManager to the global ErrorManager
+  SELF.AddItem(Toolbar)
   CLEAR(GlobalRequest)                                     ! Clear GlobalRequest after storing locally
   CLEAR(GlobalResponse)
-  SELF.AddItem(Toolbar)
   IF SELF.Request = SelectRecord
      SELF.AddItem(?Close,RequestCancelled)                 ! Add the close control to the window manger
   ELSE

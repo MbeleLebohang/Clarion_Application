@@ -64,6 +64,8 @@ ErrorMessage    string(255)
   SET(pTableFile, 1)
   !-------------------------------------------------
   str.Append('<' & 'xml' &'><13,10>')
+
+
   LOOP
     NEXT(pTableFile)                 
     IF ERRORCODE() THEN BREAK.
@@ -85,6 +87,9 @@ ErrorMessage    string(255)
     str.Append('<9></' & 'record' &'><13,10>')
     str.Append('<13,10>')
   END
+
+
+
   str.Append('</' & 'xml' &'>')
   !------------------------------------------------------
   

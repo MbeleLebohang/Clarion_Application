@@ -10,6 +10,7 @@ StringTheory:TemplateVersion equate('2.66')
    INCLUDE('KEYCODES.CLW'),ONCE
    INCLUDE('ABFUZZY.INC'),ONCE
   include('StringTheory.Inc'),ONCE
+include('XMLGenerator.Inc'),ONCE
 
    MAP
      MODULE('EMPLOYEESAPP_BC.CLW')
