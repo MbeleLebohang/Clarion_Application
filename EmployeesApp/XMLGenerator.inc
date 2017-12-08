@@ -1,4 +1,3 @@
-
 XMLGenerator  Class(), type, Module('XMLGenerator.clw'), Link('XMLGenerator.clw',1),DLL(0)
 
 Construct       Procedure()
