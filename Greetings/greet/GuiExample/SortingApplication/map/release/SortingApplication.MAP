@@ -1,0 +1,36 @@
+  401030       23 Code                IEXE32_TEXT
+  401054        7 Code                INIT_TEXT
+  40105C       5D Code                SORTINGAPPLICATION_TEXT
+  402000       44 Initialized Data    IEXE32_DATA
+  402044       32 Initialized Data    SORTINGAPPLICATION_CONST
+  402078        0 Initialized Data    __CPPINI_CONS
+  402078       1C Initialized Data    __CPPINI_CONST
+  402094        4 Initialized Data    __CPPINI_END
+  402098        0 Initialized Data    __INIVMT_CONS
+  402098        0 Initialized Data    __INIVMT_CONST_END
+  403000        8 __T_L_S__DAT
+  403008        0 __T_L_S__DATA_END
+  403010        0 __T_L_S__BS
+  403010        0 __T_L_S__BSS_END
+
+  40105C _main
+  401068 MAIN@F
+  404000 __import_section_start
+  404164 __import_section_end
+
+Imports
+ClaRUN.dll:Cla$CLOSEwindow 404058,401000
+ClaRUN.dll:Cla$code 40405C
+ClaRUN.dll:Cla$EndEventLoop 404060
+ClaRUN.dll:Cla$freewindow 404064
+ClaRUN.dll:Cla$init 404068
+ClaRUN.dll:Cla$OPENwindow 40406C,401008
+ClaRUN.dll:Cla$pwopen 404070,401010
+ClaRUN.dll:Cla$StartEventLoop 404074
+ClaRUN.dll:_exit 404078,401018
+ClaRUN.dll:__sysinit 40407C,401020
+ClaRUN.dll:__sysstart 404080,401028
+
+
+
+Entry Point:   401030

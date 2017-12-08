@@ -1,0 +1,32 @@
+  401020       65 Code                GUIEXAMPLE_TEXT
+  401088       23 Code                IEXE32_TEXT
+  4010AC        7 Code                INIT_TEXT
+  402000        B Initialized Data    GUIEXAMPLE_CONST
+  40200C       44 Initialized Data    IEXE32_DATA
+  402050        0 Initialized Data    __CPPINI_CONS
+  402050       38 Initialized Data    __CPPINI_CONST
+  402088        4 Initialized Data    __CPPINI_END
+  40208C        0 Initialized Data    __INIVMT_CONS
+  40208C        0 Initialized Data    __INIVMT_CONST_END
+  403000        8 __T_L_S__DAT
+  403008        0 __T_L_S__DATA_END
+  403010        0 __T_L_S__BS
+  403010        0 __T_L_S__BSS_END
+
+  401020 _main
+  40102C MAIN@F
+  404000 __import_section_start
+  4040EC __import_section_end
+
+Imports
+ClaRUN.dll:Cla$code 404048
+ClaRUN.dll:Cla$init 40404C
+ClaRUN.dll:Cla$MessageBox 404050,401000
+ClaRUN.dll:Cla$PushString 404054
+ClaRUN.dll:_exit 404058,401008
+ClaRUN.dll:__sysinit 40405C,401010
+ClaRUN.dll:__sysstart 404060,401018
+
+
+
+Entry Point:   401088

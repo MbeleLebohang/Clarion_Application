@@ -1,0 +1,40 @@
+  401020       72 Code                GREET_TEXT
+  401094       23 Code                IEXE32_TEXT
+  4010B8        7 Code                INIT_TEXT
+  4010C0       47 Code                LANGUAGES_TEXT
+  402000        8 Initialized Data    GREET_CONST
+  402008       44 Initialized Data    IEXE32_DATA
+  40204C        5 Initialized Data    LANGUAGES_CONST
+  402054        0 Initialized Data    __CPPINI_CONS
+  402054       38 Initialized Data    __CPPINI_CONST
+  40208C        4 Initialized Data    __CPPINI_END
+  402090        0 Initialized Data    __INIVMT_CONS
+  402090        0 Initialized Data    __INIVMT_CONST_END
+  403000        8 __T_L_S__DAT
+  403008        0 __T_L_S__DATA_END
+  403010        0 __T_L_S__BS
+  403010        0 __T_L_S__BSS_END
+
+  401020 _main
+  40102C MAIN@F
+  4010C0 GREETVENDA@Fsb
+  404000 __import_section_start
+  404178 __import_section_end
+
+Imports
+ClaRUN.dll:Cla$code 40405C
+ClaRUN.dll:Cla$freestr 404060
+ClaRUN.dll:Cla$init 404064
+ClaRUN.dll:Cla$MessageBox 404068,401000
+ClaRUN.dll:Cla$PopTemp 40406C
+ClaRUN.dll:Cla$PushString 404070
+ClaRUN.dll:Cla$StackConcat 404074
+ClaRUN.dll:Cla$StackHeap 404078
+ClaRUN.dll:Cla$StackRotate 40407C
+ClaRUN.dll:_exit 404080,401008
+ClaRUN.dll:__sysinit 404084,401010
+ClaRUN.dll:__sysstart 404088,401018
+
+
+
+Entry Point:   401094

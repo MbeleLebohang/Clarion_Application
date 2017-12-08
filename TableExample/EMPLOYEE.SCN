@@ -1,0 +1,22 @@
+[UNNAMED]
++SessionDate=12/06/2017
+crc32v2=2184938369
++CurrentKey=Record Order
+ENV File Path=
+OEM=0
+Record Order=Record Order
+EMPLOYEES:GUIDKEY=EMPLOYEES:GUIDKEY
+EMPLOYEES:EMPLOYEEKEY=EMPLOYEES:EMPLOYEEKEY
+Record Number=47R(2)~Rec No~C(0)@N_12@Y?Rec No:
+EMPLOYEES:GUID=164L(2)~Employees:Guid~C(0)?Employees:Guid:
+EMPLOYEES:TITLE=84L(2)~Employees:Title~C(0)?Employees:Title:
+EMPLOYEES:FULL_NAMES=116L(2)~Employees:Full Names~C(0)?Employees:Full Names:
+EMPLOYEES:JOB_TITLE=104L(2)~Employees:Job Title~C(0)?Employees:Job Title:
+EMPLOYEES:DATE=87R(2)~Employees:Date~C(0)@N-13@?Employees:Date:
+Columns=6
+Column1=RECORD NUMBER
+Column2=EMPLOYEES:GUID
+Column3=EMPLOYEES:TITLE
+Column4=EMPLOYEES:FULL_NAMES
+Column5=EMPLOYEES:JOB_TITLE
+Column6=EMPLOYEES:DATE

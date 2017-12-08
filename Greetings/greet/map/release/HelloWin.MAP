@@ -1,0 +1,39 @@
+  401040       82 Code                HELLOWIN_TEXT
+  4010C4       23 Code                IEXE32_TEXT
+  4010E8       2C Code                INIT_TEXT
+  402000       1E Initialized Data    HELLOWIN_CONST
+  402020       44 Initialized Data    IEXE32_DATA
+  402064        0 Initialized Data    __CPPINI_CONS
+  402064       1C Initialized Data    __CPPINI_CONST
+  402080        4 Initialized Data    __CPPINI_END
+  402084        0 Initialized Data    __INIVMT_CONS
+  402084        0 Initialized Data    __INIVMT_CONST_END
+  402090        4 Un-initialized Data HELLOWIN_BSS
+  403000        8 __T_L_S__DAT
+  403008        0 __T_L_S__DATA_END
+  403010        0 __T_L_S__BS
+  403010        0 __T_L_S__BSS_END
+
+  401040 _main
+  402090 $MYWINDOW
+  404000 __import_section_start
+  40418C __import_section_end
+
+Imports
+ClaRUN.dll:Cla$code 404060
+ClaRUN.dll:Cla$EndEventLoop 404064
+ClaRUN.dll:Cla$EVENT 404068,401000
+ClaRUN.dll:Cla$FIELD 40406C,401008
+ClaRUN.dll:Cla$freewindow 404070
+ClaRUN.dll:Cla$init 404074
+ClaRUN.dll:Cla$OPENwindow 404078,401010
+ClaRUN.dll:Cla$POST 40407C,401018
+ClaRUN.dll:Cla$pwopen 404080,401020
+ClaRUN.dll:Cla$StartEventLoop 404084
+ClaRUN.dll:_exit 404088,401028
+ClaRUN.dll:__sysinit 40408C,401030
+ClaRUN.dll:__sysstart 404090,401038
+
+
+
+Entry Point:   4010C4
